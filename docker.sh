@@ -31,27 +31,21 @@ else
 fi # fi means reverse of if, indicating condition end
 
 yum install -y yum-utils
-
 VALIDATE $? "Installed yum utils"
 
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-
 VALIDATE $? "Added docker repo"
 
 yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
-
 VALIDATE $? "Installed docker components"
 
 systemctl start docker
-
 VALIDATE $? "Started docker"
 
 systemctl enable docker
-
 VALIDATE $? "Enabled docker"
 
 usermod -aG docker centos
-
 VALIDATE $? "added centos user to docker group"
 
 echo -e "$R Logout and login again $N"
