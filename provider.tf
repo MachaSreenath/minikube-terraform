@@ -8,7 +8,7 @@ terraform {
 
   backend "s3" {
     bucket         = "forpracticeuno"
-    key            = "provisioner"
+    key            = "minikube"
     region         = "us-east-1"
     dynamodb_table = "forpractice-locking"
   }
